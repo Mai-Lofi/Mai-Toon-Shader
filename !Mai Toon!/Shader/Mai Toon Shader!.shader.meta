@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c047a1c4cc0e77e4495f68aee94a519c
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Rampmap1: {fileID: 2800000, guid: 0a9f174b2cf1b8944b6aa0089504f847, type: 3}
+  - _Rampmap2: {fileID: 2800000, guid: 9df10fc46cf752a4c956ab97f082f154, type: 3}
+  - _Rampmap3: {fileID: 2800000, guid: cb9f0dca5fe430740a3350e00f2cf330, type: 3}
+  - _Rampmap4: {fileID: 2800000, guid: 52e66a9243cdfed44b5e906f5910d35b, type: 3}
+  - _Rampmap5: {fileID: 2800000, guid: a8cc1c7de8df6b04dbd50c12c6a26535, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
