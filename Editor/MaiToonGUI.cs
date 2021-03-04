@@ -37,18 +37,30 @@ public class MaiToonGUI : ShaderGUI
     private MaterialProperty _Highlightsharpness;
     private MaterialProperty _HighlightOffset;
     private MaterialProperty _HighlightMap;
-//    private MaterialProperty _HighlightMap_ST;
+    private MaterialProperty _EmissionLevel;
     private MaterialProperty _HighlightTint;
     private MaterialProperty _EnviormentLightingcolorlevel;
     private MaterialProperty _HighlightIntencity;
     private MaterialProperty _Blendoutlinecolorwithtexture;
     private MaterialProperty _OutlineColor;
     private MaterialProperty _Outlinemask;
-//    private MaterialProperty _Outlinemask_ST;
+
+    //new rampmaps
+    //private MaterialProperty _Rampmap0;
+    private MaterialProperty _Rampmap1;
+    private MaterialProperty _Rampmap2;
+    private MaterialProperty _Rampmap3;
+    private MaterialProperty _Rampmap4;
+    private MaterialProperty _Rampmap5;
+    private MaterialProperty _Rampmap6;
+    private MaterialProperty _Rampmap7;
+    private MaterialProperty _Rampmap8;
+
+    private MaterialProperty _TextureSelection;
 //    private MaterialProperty _Cutoff = 0.5;
     private MaterialProperty _OutlineThickness;
 
-    //private MaterialProperty __dirty;
+    private MaterialProperty _EmissionMask;
 
     private void DrawInfo(string text1, string text2, string URL)
     {
@@ -172,7 +184,7 @@ public class MaiToonGUI : ShaderGUI
         editor.ShaderProperty(_OverallBrightnessAdjust, "Brightness Adjust"); //maiadd
 
         MaiSub("Shadow"); 
-        editor.ShaderProperty(_Rampmap, "Toon Ramp"); //maiadd
+        editor.ShaderProperty(_TextureSelection, "Toon Ramp"); //maiadd
         editor.ShaderProperty(_Shadowamount, "Shadow adjust"); //maiadd
 
         MaiSub("Rim Lighting"); 
@@ -221,16 +233,27 @@ public class MaiToonGUI : ShaderGUI
     {
 
         //mai-add
-        _Rampmap = FindProperty("_Rampmap", properties);
+        //_Rampmap = FindProperty("_Rampmap", properties);
+
+        //new rampmap stuff
+        _Rampmap = FindProperty("_Rampmap0", properties);
+        _Rampmap = FindProperty("_Rampmap1", properties);
+        _Rampmap = FindProperty("_Rampmap2", properties);
+        _Rampmap = FindProperty("_Rampmap3", properties);
+        _Rampmap = FindProperty("_Rampmap4", properties);
+        _Rampmap = FindProperty("_Rampmap5", properties);
+        _Rampmap = FindProperty("_Rampmap6", properties);
+        _Rampmap = FindProperty("_Rampmap7", properties);
+        _Rampmap = FindProperty("_Rampmap8", properties);
+
         _Shadowamount = FindProperty("_Shadowamount", properties);
         _Tint = FindProperty("_Tint", properties);
         _MainTex = FindProperty("_MainTex", properties);
-//        _MainTex_ST = FindProperty("_MainTex_ST", properties);
         _OverallBrightnessAdjust = FindProperty("_OverallBrightnessAdjust", properties);
         _RimSharpness = FindProperty("_RimSharpness", properties);
         _RimOffset = FindProperty("_RimOffset", properties);
         _rimmask = FindProperty("_rimmask", properties);
-//        _rimmask_ST = FindProperty("_rimmask_ST", properties);
+        _EmissionLevel = FindProperty("_EmissionLevel", properties);
         _rimcolor = FindProperty("_rimcolor", properties);
         _Rimeviormentcolorlevel = FindProperty("_Rimeviormentcolorlevel", properties);
         _Highlightsharpness = FindProperty("_Highlightsharpness", properties);
@@ -244,9 +267,11 @@ public class MaiToonGUI : ShaderGUI
         _OutlineColor = FindProperty("_OutlineColor", properties);
         _Outlinemask = FindProperty("_Outlinemask", properties);
 //        _Outlinemask_ST = FindProperty("_Outlinemask_ST", properties);
-//        _Cutoff = FindProperty("_Cutoff", properties);
+        _TextureSelection = FindProperty("_TextureSelection", properties);
         _OutlineThickness = FindProperty("_OutlineThickness", properties);
-        //__dirty = FindProperty("__dirty", properties);
+
+        _EmissionMask = FindProperty("_EmissionMask", properties);
+        
 
     }
 
