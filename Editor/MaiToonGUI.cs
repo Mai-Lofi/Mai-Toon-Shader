@@ -31,7 +31,7 @@ public class MaiToonGUI : ShaderGUI
     private MaterialProperty _RimSharpness;
     private MaterialProperty _RimOffset;
     private MaterialProperty _rimmask;
-//    private MaterialProperty _rimmask_ST;
+    private MaterialProperty _Emissioncolor;
     private MaterialProperty _rimcolor;
     private MaterialProperty _Rimeviormentcolorlevel;
     private MaterialProperty _Highlightsharpness;
@@ -196,7 +196,7 @@ public class MaiToonGUI : ShaderGUI
         MaiSub("Highlight"); 
         editor.ShaderProperty(_HighlightMap, "Highlight Mask"); //maiadd
         editor.ShaderProperty(_Highlightsharpness, "Sharpness"); //maiadd
-        editor.ShaderProperty(_HighlightIntencity, "Intencity"); //maiadd
+        editor.ShaderProperty(_HighlightIntencity, "Intensity"); //maiadd
         editor.ShaderProperty(_HighlightTint, "Color"); //maiadd
 
 
@@ -205,6 +205,11 @@ public class MaiToonGUI : ShaderGUI
         editor.ShaderProperty(_OutlineThickness, "Thickness"); //maiadd
         editor.ShaderProperty(_OutlineColor, "Color"); //maiadd
         editor.ShaderProperty(_Blendoutlinecolorwithtexture, "Blend Outline with texture (recomended)"); //maiadd
+
+        MaiSub("Emission"); 
+        editor.ShaderProperty(_EmissionMask, "Emission Mask"); //maiadd
+        editor.ShaderProperty(_Emissioncolor, "Color"); //maiadd
+        editor.ShaderProperty(_EmissionLevel, "Intensity"); //maiadd
 
         MaiSub("Enviorment Color"); 
         editor.ShaderProperty(_Rimeviormentcolorlevel, "Rim Enviorment Color Level"); //maiadd
@@ -259,7 +264,7 @@ public class MaiToonGUI : ShaderGUI
         _Highlightsharpness = FindProperty("_Highlightsharpness", properties);
         _HighlightOffset = FindProperty("_HighlightOffset", properties);
         _HighlightMap = FindProperty("_HighlightMap", properties);
-//        _HighlightMap_ST = FindProperty("_HighlightMap_ST", properties);
+        _Emissioncolor = FindProperty("_Emissioncolor", properties);
         _HighlightTint = FindProperty("_HighlightTint", properties);
         _EnviormentLightingcolorlevel = FindProperty("_EnviormentLightingcolorlevel", properties);
         _HighlightIntencity = FindProperty("_HighlightIntencity", properties);
