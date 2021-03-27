@@ -5,7 +5,7 @@ using UnityEngine;
 
 //This is my super duper cute GUI
 //Its very cute, yes..... yes it is!
-public class MaiToonGUI : ShaderGUI
+public class MaiWedgeGUI : ShaderGUI
 {
     private Font CuteFont = (Font)Resources.Load(@"maiYeyey_font");
     private Font VrchatFont = (Font)Resources.Load(@"maisegoesc");
@@ -16,51 +16,27 @@ public class MaiToonGUI : ShaderGUI
     private Texture2D pinkbunnylogo = Resources.Load<Texture2D>("pinkbunnylogo");
     private Texture2D MaiInfo = Resources.Load<Texture2D>("IMG/MaiInfo");
 
-    private Texture2D maiheaderimg = Resources.Load<Texture2D>("IMG/MaiHeadertoonv1");
+    private Texture2D maiheaderimg = Resources.Load<Texture2D>("IMG/MaiHeaderwedge");
 
 
 
     
 
-    private MaterialProperty _Rampmap;
-    private MaterialProperty _Shadowamount;
     private MaterialProperty _Tint;
-    private MaterialProperty _MainTex;
-//    private MaterialProperty _MainTex_ST;
-    private MaterialProperty _OverallBrightnessAdjust;
-    private MaterialProperty _RimSharpness;
-    private MaterialProperty _RimOffset;
-    private MaterialProperty _rimmask;
-    private MaterialProperty _Emissioncolor;
-    private MaterialProperty _rimcolor;
-    private MaterialProperty _Rimeviormentcolorlevel;
-    private MaterialProperty _Highlightsharpness;
-    private MaterialProperty _HighlightOffset;
-    private MaterialProperty _HighlightMap;
-    private MaterialProperty _EmissionLevel;
-    private MaterialProperty _HighlightTint;
-    private MaterialProperty _EnviormentLightingcolorlevel;
-    private MaterialProperty _HighlightIntencity;
-    private MaterialProperty _Blendoutlinecolorwithtexture;
-    private MaterialProperty _OutlineColor;
-    private MaterialProperty _Outlinemask;
-
-    //new rampmaps
-    //private MaterialProperty _Rampmap0;
-    private MaterialProperty _Rampmap1;
-    private MaterialProperty _Rampmap2;
-    private MaterialProperty _Rampmap3;
-    private MaterialProperty _Rampmap4;
-    private MaterialProperty _Rampmap5;
-    private MaterialProperty _Rampmap6;
-    private MaterialProperty _Rampmap7;
-    private MaterialProperty _Rampmap8;
-
-    private MaterialProperty _TextureSelection;
-//    private MaterialProperty _Cutoff = 0.5;
-    private MaterialProperty _OutlineThickness;
-
-    private MaterialProperty _EmissionMask;
+    private MaterialProperty _NoiseMapStrength;
+    private MaterialProperty _EyeType1;
+    private MaterialProperty _EyeType2;
+    private MaterialProperty _EyeType3;
+    private MaterialProperty _RingPanner;
+    private MaterialProperty _NoiseMap;
+    private MaterialProperty _Texture1;
+    private MaterialProperty _Texture0;
+    private MaterialProperty _emiss;
+    private MaterialProperty _RingPannerSpeed;    
+    private MaterialProperty _BaseTexture;
+    
+    private MaterialProperty _NoiseMapSize;
+    private MaterialProperty __dirty;
 
     private void DrawInfo(string text1, string text2, string URL)
     {
@@ -170,7 +146,7 @@ public class MaiToonGUI : ShaderGUI
     {
         Material material = editor.target as Material;
 
-        DrawBanner("Mai Toon Shader Beta 1.1!", "Open Shader Guide WIP", "https://pinkbunny.tech/?p=411");
+        DrawBanner("Wedge Eye Shader!", "Open Shader Guide", "https://pinkbunny.tech/?p=411");
 
         FindProperties(properties);
 
@@ -178,43 +154,19 @@ public class MaiToonGUI : ShaderGUI
 
 
 
-        MaiSub("Main"); 
-        editor.ShaderProperty(_MainTex, "Main Texture"); //maiadd
-        editor.ShaderProperty(_Tint, "Tint"); //maiadd
-        editor.ShaderProperty(_OverallBrightnessAdjust, "Brightness Adjust"); //maiadd
+        MaiSub("Eye Mode!"); 
+        editor.ShaderProperty(_EyeType1, "Eye Mode 1"); //maiadd
+        editor.ShaderProperty(_EyeType2, "Eye Mode 2"); //maiadd
+        editor.ShaderProperty(_EyeType3, "Eye Mode 3"); //maiadd
 
-        MaiSub("Shadow"); 
-        editor.ShaderProperty(_TextureSelection, "Toon Ramp"); //maiadd
-        editor.ShaderProperty(_Shadowamount, "Shadow adjust"); //maiadd
+        MaiSub("Main settings!"); 
+        editor.ShaderProperty(_Tint, MakeLabel(_Tint)); //maiadd
 
-        MaiSub("Rim Lighting"); 
-        editor.ShaderProperty(_rimmask, "Rim Mask"); //maiadd
-        editor.ShaderProperty(_RimOffset, "Offset"); //maiadd
-        editor.ShaderProperty(_RimSharpness, "Sharpness"); //maiadd
-        editor.ShaderProperty(_rimcolor, "Color"); //maiadd
-
-        MaiSub("Highlight"); 
-        editor.ShaderProperty(_HighlightMap, "Highlight Mask"); //maiadd
-        editor.ShaderProperty(_Highlightsharpness, "Sharpness"); //maiadd
-        editor.ShaderProperty(_HighlightIntencity, "Intensity"); //maiadd
-        editor.ShaderProperty(_HighlightTint, "Color"); //maiadd
+        editor.ShaderProperty(_RingPanner, MakeLabel(_RingPanner)); //maiadd
 
 
-        MaiSub("Outline"); 
-        editor.ShaderProperty(_Outlinemask, "Outline Mask"); //maiadd
-        editor.ShaderProperty(_OutlineThickness, "Thickness"); //maiadd
-        editor.ShaderProperty(_OutlineColor, "Color"); //maiadd
-        editor.ShaderProperty(_Blendoutlinecolorwithtexture, "Blend Outline with texture (recomended)"); //maiadd
-
-        MaiSub("Emission"); 
-        editor.ShaderProperty(_EmissionMask, "Emission Mask"); //maiadd
-        editor.ShaderProperty(_Emissioncolor, "Color"); //maiadd
-        editor.ShaderProperty(_EmissionLevel, "Intensity"); //maiadd
-
-        MaiSub("Enviorment Color"); 
-        editor.ShaderProperty(_Rimeviormentcolorlevel, "Rim Enviorment Color Level"); //maiadd
-        editor.ShaderProperty(_EnviormentLightingcolorlevel, "Highlight Enviorment Color Level"); //maiadd
-
+        editor.ShaderProperty(_NoiseMapStrength, "Noise Strength"); //maiadd
+        editor.ShaderProperty(_emiss, "Emission"); //maiadd
 
 
         EditorGUILayout.EndVertical();
@@ -238,45 +190,16 @@ public class MaiToonGUI : ShaderGUI
     {
 
         //mai-add
-        //_Rampmap = FindProperty("_Rampmap", properties);
-
-        //new rampmap stuff
-        _Rampmap = FindProperty("_Rampmap0", properties);
-        _Rampmap = FindProperty("_Rampmap1", properties);
-        _Rampmap = FindProperty("_Rampmap2", properties);
-        _Rampmap = FindProperty("_Rampmap3", properties);
-        _Rampmap = FindProperty("_Rampmap4", properties);
-        _Rampmap = FindProperty("_Rampmap5", properties);
-        _Rampmap = FindProperty("_Rampmap6", properties);
-        _Rampmap = FindProperty("_Rampmap7", properties);
-        _Rampmap = FindProperty("_Rampmap8", properties);
-
-        _Shadowamount = FindProperty("_Shadowamount", properties);
         _Tint = FindProperty("_Tint", properties);
-        _MainTex = FindProperty("_MainTex", properties);
-        _OverallBrightnessAdjust = FindProperty("_OverallBrightnessAdjust", properties);
-        _RimSharpness = FindProperty("_RimSharpness", properties);
-        _RimOffset = FindProperty("_RimOffset", properties);
-        _rimmask = FindProperty("_rimmask", properties);
-        _EmissionLevel = FindProperty("_EmissionLevel", properties);
-        _rimcolor = FindProperty("_rimcolor", properties);
-        _Rimeviormentcolorlevel = FindProperty("_Rimeviormentcolorlevel", properties);
-        _Highlightsharpness = FindProperty("_Highlightsharpness", properties);
-        _HighlightOffset = FindProperty("_HighlightOffset", properties);
-        _HighlightMap = FindProperty("_HighlightMap", properties);
-        _Emissioncolor = FindProperty("_Emissioncolor", properties);
-        _HighlightTint = FindProperty("_HighlightTint", properties);
-        _EnviormentLightingcolorlevel = FindProperty("_EnviormentLightingcolorlevel", properties);
-        _HighlightIntencity = FindProperty("_HighlightIntencity", properties);
-        _Blendoutlinecolorwithtexture = FindProperty("_Blendoutlinecolorwithtexture", properties);
-        _OutlineColor = FindProperty("_OutlineColor", properties);
-        _Outlinemask = FindProperty("_Outlinemask", properties);
-//        _Outlinemask_ST = FindProperty("_Outlinemask_ST", properties);
-        _TextureSelection = FindProperty("_TextureSelection", properties);
-        _OutlineThickness = FindProperty("_OutlineThickness", properties);
-
-        _EmissionMask = FindProperty("_EmissionMask", properties);
-        
+        _NoiseMapStrength = FindProperty("_NoiseMapStrength", properties);
+        _EyeType1 = FindProperty("_EyeType1", properties);
+        _EyeType2 = FindProperty("_EyeType2", properties);
+        _EyeType3 = FindProperty("_EyeType3", properties);
+        _RingPanner = FindProperty("_RingPanner", properties);
+        _emiss = FindProperty("_emiss", properties);
+        _RingPannerSpeed = FindProperty("_RingPannerSpeed", properties);
+        _NoiseMapSize = FindProperty("_NoiseMapSize", properties);
+        __dirty = FindProperty("__dirty", properties);
 
     }
 

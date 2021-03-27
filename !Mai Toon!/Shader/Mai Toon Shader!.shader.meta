@@ -3,12 +3,14 @@ guid: c047a1c4cc0e77e4495f68aee94a519c
 ShaderImporter:
   externalObjects: {}
   defaultTextures:
-  - _Rampmap1: {fileID: 2800000, guid: 0a9f174b2cf1b8944b6aa0089504f847, type: 3}
-  - _Rampmap3: {fileID: 2800000, guid: cb9f0dca5fe430740a3350e00f2cf330, type: 3}
+  - _Rampmap0: {fileID: 2800000, guid: 7e153e3ba8816ac468b9128e76566372, type: 3}
+  - _Rampmap1: {fileID: 2800000, guid: d54ae310ff555a041885fed8b05fb20b, type: 3}
+  - _Rampmap2: {fileID: 2800000, guid: 8492781214ba8194a94b26813632d012, type: 3}
+  - _Rampmap3: {fileID: 2800000, guid: 3329a34292fbb6c43b9f4bb6f1e3215d, type: 3}
+  - _Rampmap4: {fileID: 2800000, guid: c1c97f4c592db8e4bad954caeaeaefbf, type: 3}
   - _Rampmap5: {fileID: 2800000, guid: a8cc1c7de8df6b04dbd50c12c6a26535, type: 3}
-  - _Rampmap6: {fileID: 2800000, guid: a8cc1c7de8df6b04dbd50c12c6a26535, type: 3}
-  - _Rampmap7: {fileID: 2800000, guid: a8cc1c7de8df6b04dbd50c12c6a26535, type: 3}
-  - _Rampmap8: {fileID: 2800000, guid: a8cc1c7de8df6b04dbd50c12c6a26535, type: 3}
+  - _Rampmap6: {fileID: 2800000, guid: cb9f0dca5fe430740a3350e00f2cf330, type: 3}
+  - _Rampmap7: {fileID: 2800000, guid: 0a9f174b2cf1b8944b6aa0089504f847, type: 3}
   nonModifiableTextures: []
   userData: 
   assetBundleName: 
