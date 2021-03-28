@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: arms
+  m_Shader: {fileID: 4800000, guid: 49ac460170b60754bbb277d55a1a8c51, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorMap:
+        m_Texture: {fileID: 2800000, guid: 93e3b5e5a0ef06d438bca17904503856, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 724328d499e15e6488ca7b4d2043b991, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PODMap:
+        m_Texture: {fileID: 2800000, guid: 8c5bc392e0205c745a648f79a5905bb4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RoughnessMap:
+        m_Texture: {fileID: 2800000, guid: 8c5bc392e0205c745a648f79a5905bb4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SmoothnessTexuture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _PODlevel: 8.68
+    - _Roughnessintencity: 5.32
+    - __dirty: 0
+    - _smoothnesintesity: 0.45
+    m_Colors:
+    - _Accentcolor: {r: 0.85882354, g: 0.7254902, b: 0.44705883, a: 0}
+    - _Primarycolor: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 0}
+    - _Secondarycolor: {r: 0.827451, g: 0.7882353, b: 0.64705884, a: 0}
+    - _Terciarycolor: {r: 0.91764706, g: 0.8509804, b: 0.64705884, a: 0}
+    - _smoothnesscolor: {r: 0.8769978, g: 1, b: 0, a: 0}
